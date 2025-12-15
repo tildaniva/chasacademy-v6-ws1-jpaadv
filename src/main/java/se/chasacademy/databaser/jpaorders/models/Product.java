@@ -2,6 +2,9 @@ package se.chasacademy.databaser.jpaorders.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "T_PRODUCT")
 public class Product {
@@ -22,4 +25,8 @@ public class Product {
 
     @Column(name = "ACTIVE_FLAG", nullable = false)
     private String activeFlag;
+
+    @OneToMany(mappedBy = "product")
+    private List<OrderLine> orderLines = new ArrayList<>();
+
 }
